@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PlusOne</title>
+    </head>
+    <body>
+        <center>
+            <h1>Plus One Result</h1>
+        </center>
+        <form name ="Result">
+            <script language="JavaScript">
+                function checkData()
+                {
+                    var regno;
+                    regno = document.Result.txtRegno.value;
+                    if(regno == "")
+                    {
+                        alert("Please Enter Register Number")
+                        return;
+                    }
+                    if (isNaN(regno))
+                    {
+                        alert("Invalid Register Number");
+                        return;
+                    }
+                    if (isNaN(regno))
+                    {
+                        alert("The Register No. Must Have 7 Digits");
+                        return;
+                    }
+                }
+            </script>
+            <center>
+                <br>
+                Number Register Number
+                <input type="text" Name="textRegno">
+                <br>
+                <br>
+                <input type="button" value="Get Result" onclick="checkData()"
+            </center>
+        </form>
+        <pre>copyright by amalkochuparambilp@gmail.com</pre>
+    </body>
+</html>
