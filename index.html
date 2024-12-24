@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <head>
+         <title>College Marks Checks</title>
+        </head>
+        <style>
+            body{
+                font-family: sans-serif;
+                text-align: center;
+                margin: 20px;
+            }
+            h1{
+                color: #4caf50;
+            }
+            form{
+                margin: 20px auto;
+                max-width: 400px;
+                text-align: left;
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 5px;
+            }
+            label{
+                font-weight: bold;
+            }
+            input,button{
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border-radius: 5px;
+            }
+            button {
+                background-color: #4aca4a;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: #45a049;
+            }
+            #result copy{
+                margin-top: 20px;
+                font-size: 1.2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Test Paper Result </h1>
+        <p>Enter your Roll Number to view yourmarks.</p>
+        <form
+              } catch (e) {
+              //Catch Statement
+              }
+              } id="marksForm">
+            <label for="rollNo">Roll Number</label>
+            <input type="text" id="rollNo" placeholder="Enter Your Roll Number" required>
+            <button type="submit">Check Marks</button>
+        </form>
+        <div id="result"></div>
+        <br>
+        <div id="copy">
+            <pre>copyright by AKP DevZ</pre>
+        </div>
+        <script>
+
+            const studentMarks = {
+                "101" : {rollnum: 101,name: "Alice", mark: 5, porf: "Failed"},
+                "102" : {rollnum: 102,name: "Bob", mark: 92, porf: "Passed"},
+                "103" : {rollnum: 103,name: "Charlie", mark:78, porf: "Passed"},
+                "104" : {rollnum: 104,name: "Joe", mark: 10, porf: "Failed"}
+            };
+
+            document.getElementById('marksForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const rollNo = document.getElementById('rollNo').value.trim();
+                const resultDiv = document.getElementById('result');
+                if(studentMarks[rollNo]) {
+                    const student = studentMarks[rollNo];
+                    resultDiv.innerHTML = `
+                        <center>
+                            <table border="" cellspacing="2">
+                                <tr> 
+                                    <th colspan="3">Your Mark Result</th>
+                                </tr>
+                                <tr>
+                                    <th>Name</th><td align="center"> ${student.name} </td>
+                                    <th align="center" rowspan="3"> ${student.porf} </th>
+                                </tr>
+                                <tr>
+                                     <th>Roll No</th><td align="center"> ${student.rollnum} </td>
+                                </tr>
+                                <tr>
+                                      <th align="center" colspan="2">Total Mark :- ${student.mark} </th>
+                               </tr>
+                            </table>
+                        </center>
+                     `;
+                     resultDiv.style.color = "black";
+                } else {
+                    resultDiv.textContent = "Roll number not found..!";
+                    resultDiv.style.color = "red";
+                }
+            });
+        </script>
+    </body>
+</html>
